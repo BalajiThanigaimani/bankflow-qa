@@ -1,0 +1,10 @@
+[ {
+  "name" : "GitHub Actions",
+  "type" : "github",
+  "url" : "https://BalajiThanigaimani.github.io/bankflow-qa/etl",
+  "buildOrder" : 16,
+  "buildName" : "GitHub Actions Run #18823588562",
+  "buildUrl" : "https://github.com/BalajiThanigaimani/bankflow-qa/actions/runs/18823588562",
+  "reportName" : "Allure Report with history",
+  "reportUrl" : "https://BalajiThanigaimani.github.io/bankflow-qa/etl/16/"
+} ]

@@ -1,0 +1,78 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "runnervmwhb2z",
+    "children" : [ {
+      "name" : "4133-MainThread",
+      "children" : [ {
+        "name" : "\uD83D\uDD27 Transformation Logic Check",
+        "uid" : "61150cbcd9c250ad",
+        "parentUid" : "d4d316a070e0d715c534ddf2f136a1af",
+        "status" : "passed",
+        "time" : {
+          "start" : 1761512121300,
+          "stop" : 1761512121337,
+          "duration" : 37
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "✅ Data Completeness Check",
+        "uid" : "a566a33e2af746ba",
+        "parentUid" : "d4d316a070e0d715c534ddf2f136a1af",
+        "status" : "passed",
+        "time" : {
+          "start" : 1761512120855,
+          "stop" : 1761512121241,
+          "duration" : 386
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "⚠️ Mandatory Fields Check",
+        "uid" : "5c1614dbe6c76b4e",
+        "parentUid" : "d4d316a070e0d715c534ddf2f136a1af",
+        "status" : "passed",
+        "time" : {
+          "start" : 1761512121269,
+          "stop" : 1761512121299,
+          "duration" : 30
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "\uD83D\uDD01 Duplicate Records Validation",
+        "uid" : "31136b79e0be98f0",
+        "parentUid" : "d4d316a070e0d715c534ddf2f136a1af",
+        "status" : "passed",
+        "time" : {
+          "start" : 1761512121243,
+          "stop" : 1761512121268,
+          "duration" : 25
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "\uD83D\uDD0E Missing Records After ETL",
+        "uid" : "e1a72944102a25bb",
+        "parentUid" : "d4d316a070e0d715c534ddf2f136a1af",
+        "status" : "passed",
+        "time" : {
+          "start" : 1761512121338,
+          "stop" : 1761512121362,
+          "duration" : 24
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d4d316a070e0d715c534ddf2f136a1af"
+    } ],
+    "uid" : "4431318c99c847c9045f31fb87391744"
+  } ],
+  "name" : "timeline"
+}
