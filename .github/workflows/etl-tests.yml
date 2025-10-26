@@ -51,6 +51,13 @@ jobs:
       - name: Run ETL tests on Azure SQL
         run: pytest bankflow/tests/data/etl/test_completeness.py --alluredir=allure-results -v
 
+      - name: Install Allure CLI
+        shell: bash
+        run: |
+          sudo apt-add-repository ppa:qameta/allure -y
+          sudo apt-get update
+          sudo apt-get install allure -y
+
       - name: Generate Allure Report
         shell: bash
         run: |
