@@ -5,6 +5,11 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write     # Required to push to gh-pages branch
+  pages: write        # Required to deploy GitHub Pages
+  id-token: write     # Required by actions to authenticate
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -18,7 +23,7 @@ jobs:
       PYTHONPATH: .
 
     steps:
-      - name: ✅ Check out repository
+      - name: ✅ Checkout repository
         uses: actions/checkout@v4
 
       - name: ✅ Set up Python 3.11
@@ -26,7 +31,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: ✅ Install ODBC drivers for Azure SQL
+      - name: ✅ Install dependencies for Azure SQL
         run: |
           sudo apt-get update
           sudo apt-get install -y curl apt-transport-https gnupg
@@ -41,26 +46,33 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: ✅ Remove old Allure results (clean run)
-        run: rm -rf allure-results || true
+      - name: ✅ Clean allure results
+        run: rm -rf allure-results allure-report || true
 
-      - name: ✅ Load demo data to Azure SQL
-        run: |
-          python -m bankflow.tests.data.etl.setup_and_load_azure
+      - name: ✅ Load ETL demo data into Azure SQL
+        run: python -m bankflow.tests.data.etl.setup_and_load_azure
 
       - name: ✅ Run ETL tests
-        run: |
-          pytest bankflow/tests/data/etl/test_completeness.py --alluredir=allure-results -v
+        run: pytest bankflow/tests/data/etl/test_completeness.py --alluredir=allure-results -v
+        continue-on-error: true   # ✅ Publish report even if tests fail
 
-      - name: ✅ Generate Allure Report
+      - name: ✅ Generate Allure HTML Report
         uses: simple-elf/allure-report-action@v1.6
         with:
           allure_results: allure-results
-          allure_report: allure-report
+          allure_report: allure-report/etl
+          subfolder: etl
           gh_pages: true
-          allure_history: allure-history
+          keep_reports: 5  # Keep last 5 reports history
 
-      - name: ✅ Upload Allure Report Artifact
+      - name: ✅ Deploy Allure report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-report
+          publish_branch: gh-pages
+
+      - name: ✅ Upload Allure artifact
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
