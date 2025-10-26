@@ -52,16 +52,11 @@ jobs:
         run: pytest bankflow/tests/data/etl/test_completeness.py --alluredir=allure-results -v
 
       - name: Install Allure CLI
-        shell: bash
-        run: |
-          sudo apt-add-repository ppa:qameta/allure -y
-          sudo apt-get update
-          sudo apt-get install allure -y
+        uses: dawidd6/action-install-allure@v2
 
       - name: Generate Allure Report
         shell: bash
         run: |
-          pip install allure-python-commons
           mkdir -p allure-report
           allure generate allure-results -o allure-report --clean
 
