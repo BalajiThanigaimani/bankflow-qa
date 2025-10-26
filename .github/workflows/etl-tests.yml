@@ -51,8 +51,14 @@ jobs:
       - name: Run ETL tests on Azure SQL
         run: pytest bankflow/tests/data/etl/test_completeness.py -v
 
-      - name: Upload Allure results
-        uses: actions/upload-artifact@v4
+      - name: Generate Allure Report
+        run: |
+          pip install allure-python-commons
+          mkdir -p allure-report
+          allure generate allure-results -o allure-report --clean
+
+      - name: Upload Allure Report Artifact
+        uses: actions/upload-artifact@v3
         with:
-          name: allure-results
-          path: allure-results
+          name: allure-report
+          path: allure-report
