@@ -67,6 +67,7 @@ jobs:
 
       - name: ✅ Add index.html redirect for GitHub Pages
         run: |
+          chmod -R 777 allure-report
           echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=./etl/index.html" /></head><body></body></html>' > allure-report/index.html
 
       - name: ✅ Deploy to GitHub Pages
