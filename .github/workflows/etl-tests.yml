@@ -23,7 +23,7 @@ jobs:
       PYTHONPATH: .
 
     steps:
-      - name: ✅ Checkout Repo
+      - name: ✅ Checkout Repository
         uses: actions/checkout@v4
 
       - name: ✅ Set up Python
@@ -31,7 +31,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: ✅ Azure SQL ODBC Driver Setup
+      - name: ✅ Install Azure SQL ODBC Driver
         run: |
           sudo apt-get update
           sudo apt-get install -y curl apt-transport-https gnupg
@@ -46,45 +46,30 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: ✅ Clean old Allure reports
-        run: rm -rf allure-results allure-report || true
+      - name: ✅ Clean old reports
+        run: rm -rf allure-results gh-pages-deploy || true
 
-      - name: ✅ Load ETL demo data into Azure
+      - name: ✅ Load ETL demo data
         run: python -m bankflow.tests.data.etl.setup_and_load_azure
 
       - name: ✅ Run ETL Tests
         run: pytest bankflow/tests/data/etl/test_completeness.py --alluredir=allure-results -v
-        continue-on-error: true
+        continue-on-error: true  # ✅ Publish even if tests fail
 
-      - name: ✅ Generate Allure Report
-        uses: simple-elf/allure-report-action@v1.6
-        with:
-          allure_results: allure-results
-          allure_report: allure-report/etl
-          subfolder: etl
-          keep_reports: 10
-          gh_pages: true
-
-      - name: ✅ Add redirect index.html
+      - name: ✅ Generate Allure HTML Report
         run: |
-          mkdir -p allure-report
-          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=./etl/index.html" /></head><body></body></html>' > allure-report/index.html
+          allure generate allure-results -o gh-pages-deploy/allure-report/etl --clean
+
+      - name: ✅ Add index redirect
+        run: |
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=./allure-report/etl/index.html" /></head><body></body></html>' > gh-pages-deploy/index.html
 
       - name: ✅ Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-report
           publish_branch: gh-pages
+          publish_dir: gh-pages-deploy
 
-      - name: ✅ GitHub Actions Summary
-        run: |
-          echo "✅ ETL Test Pipeline Completed" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "🔗 **Live Allure Report:** https://balajithanigaimani.github.io/bankflow-qa/allure-report/etl" >> $GITHUB_STEP_SUMMARY
-
-      - name: ✅ Upload Allure Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report
-          path: allure-report
+      - name: ✅ Add summary link
+        run: echo "Live Report: https://balajithanigaimani.github.io/bankflow-qa/allure-report/etl" >> $GITHUB_STEP_SUMMARY
