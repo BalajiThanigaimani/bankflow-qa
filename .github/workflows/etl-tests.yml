@@ -42,7 +42,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Clean old Allure results
-        run: rm -rf allure-results
+        shell: bash
+        run: rm -rf allure-results || true
 
       - name: Load demo data to Azure
         run: python -m bankflow.tests.data.etl.setup_and_load_azure
