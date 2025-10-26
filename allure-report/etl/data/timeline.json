@@ -1,0 +1,78 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "runnervmwhb2z",
+    "children" : [ {
+      "name" : "4219-MainThread",
+      "children" : [ {
+        "name" : "⚠️ Mandatory Fields Check",
+        "uid" : "a24c75501e5b5ebd",
+        "parentUid" : "3eb9b60bab40ccdbfe2e2204c61488fa",
+        "status" : "passed",
+        "time" : {
+          "start" : 1761514831945,
+          "stop" : 1761514831959,
+          "duration" : 14
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "✅ Data Completeness Check",
+        "uid" : "6a146bf0c286f483",
+        "parentUid" : "3eb9b60bab40ccdbfe2e2204c61488fa",
+        "status" : "passed",
+        "time" : {
+          "start" : 1761514831807,
+          "stop" : 1761514831935,
+          "duration" : 128
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "\uD83D\uDD01 Duplicate Records Validation",
+        "uid" : "d2732310161bdf27",
+        "parentUid" : "3eb9b60bab40ccdbfe2e2204c61488fa",
+        "status" : "passed",
+        "time" : {
+          "start" : 1761514831936,
+          "stop" : 1761514831943,
+          "duration" : 7
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "\uD83D\uDD0E Missing Records After ETL",
+        "uid" : "a83684d96cdf6c2f",
+        "parentUid" : "3eb9b60bab40ccdbfe2e2204c61488fa",
+        "status" : "passed",
+        "time" : {
+          "start" : 1761514831981,
+          "stop" : 1761514831989,
+          "duration" : 8
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "\uD83D\uDD27 Transformation Logic Check",
+        "uid" : "bd3026160199ac9b",
+        "parentUid" : "3eb9b60bab40ccdbfe2e2204c61488fa",
+        "status" : "passed",
+        "time" : {
+          "start" : 1761514831960,
+          "stop" : 1761514831980,
+          "duration" : 20
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "3eb9b60bab40ccdbfe2e2204c61488fa"
+    } ],
+    "uid" : "4431318c99c847c9045f31fb87391744"
+  } ],
+  "name" : "timeline"
+}

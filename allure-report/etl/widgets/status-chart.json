@@ -1,0 +1,51 @@
+[ {
+  "uid" : "a24c75501e5b5ebd",
+  "name" : "⚠️ Mandatory Fields Check",
+  "time" : {
+    "start" : 1761514831945,
+    "stop" : 1761514831959,
+    "duration" : 14
+  },
+  "status" : "passed",
+  "severity" : "critical"
+}, {
+  "uid" : "6a146bf0c286f483",
+  "name" : "✅ Data Completeness Check",
+  "time" : {
+    "start" : 1761514831807,
+    "stop" : 1761514831935,
+    "duration" : 128
+  },
+  "status" : "passed",
+  "severity" : "critical"
+}, {
+  "uid" : "bd3026160199ac9b",
+  "name" : "\uD83D\uDD27 Transformation Logic Check",
+  "time" : {
+    "start" : 1761514831960,
+    "stop" : 1761514831980,
+    "duration" : 20
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d2732310161bdf27",
+  "name" : "\uD83D\uDD01 Duplicate Records Validation",
+  "time" : {
+    "start" : 1761514831936,
+    "stop" : 1761514831943,
+    "duration" : 7
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a83684d96cdf6c2f",
+  "name" : "\uD83D\uDD0E Missing Records After ETL",
+  "time" : {
+    "start" : 1761514831981,
+    "stop" : 1761514831989,
+    "duration" : 8
+  },
+  "status" : "passed",
+  "severity" : "critical"
+} ]

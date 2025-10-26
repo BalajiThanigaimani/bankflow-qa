@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Oct 26 21:40:31 GMT 2025","Sun Oct 26 21:40:31 GMT 2025","14","bankflow.tests.data.etl","test_completeness","","","","⚠️ Mandatory Fields Check","Check if mandatory fields like email are populated."
+"passed","Sun Oct 26 21:40:31 GMT 2025","Sun Oct 26 21:40:31 GMT 2025","128","bankflow.tests.data.etl","test_completeness","","","","✅ Data Completeness Check","Verify the total number of rows in source matches target after ETL."
+"passed","Sun Oct 26 21:40:31 GMT 2025","Sun Oct 26 21:40:31 GMT 2025","20","bankflow.tests.data.etl","test_completeness","","","","🔧 Transformation Logic Check","Validate name transformation rule: first + last = full_name."
+"passed","Sun Oct 26 21:40:31 GMT 2025","Sun Oct 26 21:40:31 GMT 2025","7","bankflow.tests.data.etl","test_completeness","","","","🔁 Duplicate Records Validation","Ensure no duplicate customer_id present in source table."
+"passed","Sun Oct 26 21:40:31 GMT 2025","Sun Oct 26 21:40:31 GMT 2025","8","bankflow.tests.data.etl","test_completeness","","","","🔎 Missing Records After ETL","Ensure no missing rows between source and target after ETL."

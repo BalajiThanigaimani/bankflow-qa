@@ -1,0 +1,141 @@
+{
+  "uid" : "6a146bf0c286f483",
+  "name" : "✅ Data Completeness Check",
+  "fullName" : "bankflow.tests.data.etl.test_completeness#test_data_completeness",
+  "historyId" : "0fdf218a3422e4caa090b6cd0006739f",
+  "time" : {
+    "start" : 1761514831807,
+    "stop" : 1761514831935,
+    "duration" : 128
+  },
+  "description" : "Verify the total number of rows in source matches target after ETL.",
+  "descriptionHtml" : "<p>Verify the total number of rows in source matches target after ETL.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "delete_output_dir",
+    "time" : {
+      "start" : 1761514831806,
+      "stop" : 1761514831807,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1761514831806,
+      "stop" : 1761514831806,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "pytestconfig",
+    "time" : {
+      "start" : 1761514831806,
+      "stop" : 1761514831806,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_verify_url",
+    "time" : {
+      "start" : 1761514831806,
+      "stop" : 1761514831806,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "Verify the total number of rows in source matches target after ETL.",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "15690954cacee148",
+      "name" : "Source Row Count",
+      "source" : "15690954cacee148.attach",
+      "type" : "text/plain",
+      "size" : 1
+    }, {
+      "uid" : "c32bf2c1e2c797f9",
+      "name" : "Target Row Count",
+      "source" : "c32bf2c1e2c797f9.attach",
+      "type" : "text/plain",
+      "size" : 1
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "critical"
+  }, {
+    "name" : "parentSuite",
+    "value" : "bankflow.tests.data.etl"
+  }, {
+    "name" : "suite",
+    "value" : "test_completeness"
+  }, {
+    "name" : "host",
+    "value" : "runnervmwhb2z"
+  }, {
+    "name" : "thread",
+    "value" : "4219-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "bankflow.tests.data.etl.test_completeness"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "critical",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "6a146bf0c286f483.json",
+  "parameterValues" : [ ]
+}

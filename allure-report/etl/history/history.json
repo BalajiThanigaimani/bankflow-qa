@@ -1,0 +1,102 @@
+{
+  "a007f041b7323dbcc0a2e1e2c39d6f4f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a83684d96cdf6c2f",
+      "reportUrl" : "https://BalajiThanigaimani.github.io/bankflow-qa/22//#testresult/a83684d96cdf6c2f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1761514831981,
+        "stop" : 1761514831989,
+        "duration" : 8
+      }
+    } ]
+  },
+  "0fdf218a3422e4caa090b6cd0006739f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "6a146bf0c286f483",
+      "reportUrl" : "https://BalajiThanigaimani.github.io/bankflow-qa/22//#testresult/6a146bf0c286f483",
+      "status" : "passed",
+      "time" : {
+        "start" : 1761514831807,
+        "stop" : 1761514831935,
+        "duration" : 128
+      }
+    } ]
+  },
+  "77501565ac50c94efbc83428dcfeec48" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a24c75501e5b5ebd",
+      "reportUrl" : "https://BalajiThanigaimani.github.io/bankflow-qa/22//#testresult/a24c75501e5b5ebd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1761514831945,
+        "stop" : 1761514831959,
+        "duration" : 14
+      }
+    } ]
+  },
+  "f76d54db9bbe5a3872697392875c8646" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d2732310161bdf27",
+      "reportUrl" : "https://BalajiThanigaimani.github.io/bankflow-qa/22//#testresult/d2732310161bdf27",
+      "status" : "passed",
+      "time" : {
+        "start" : 1761514831936,
+        "stop" : 1761514831943,
+        "duration" : 7
+      }
+    } ]
+  },
+  "d85710e1c31d44ce0b6e42cd424293cf" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "bd3026160199ac9b",
+      "reportUrl" : "https://BalajiThanigaimani.github.io/bankflow-qa/22//#testresult/bd3026160199ac9b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1761514831960,
+        "stop" : 1761514831980,
+        "duration" : 20
+      }
+    } ]
+  }
+}
