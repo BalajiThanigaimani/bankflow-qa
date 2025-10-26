@@ -49,9 +49,10 @@ jobs:
         run: python -m bankflow.tests.data.etl.setup_and_load_azure
 
       - name: Run ETL tests on Azure SQL
-        run: pytest bankflow/tests/data/etl/test_completeness.py -v
+        run: pytest bankflow/tests/data/etl/test_completeness.py --alluredir=allure-results -v
 
       - name: Generate Allure Report
+        shell: bash
         run: |
           pip install allure-python-commons
           mkdir -p allure-report
