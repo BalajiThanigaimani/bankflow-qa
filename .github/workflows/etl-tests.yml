@@ -72,4 +72,5 @@ jobs:
           publish_dir: gh-pages-deploy
 
       - name: ✅ Add summary link
-        run: echo "Live Report: https://balajithanigaimani.github.io/bankflow-qa/allure-report/etl" >> $GITHUB_STEP_SUMMARY
+        run: |
+          echo "Live Report: https://balajithanigaimani.github.io/bankflow-qa/allure-report/etl" >> $GITHUB_STEP_SUMMARY
