@@ -18,15 +18,15 @@ jobs:
       PYTHONPATH: .
 
     steps:
-      - name: Check out code
+      - name: ✅ Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: ✅ Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install system dependencies for Azure SQL
+      - name: ✅ Install ODBC drivers for Azure SQL
         run: |
           sudo apt-get update
           sudo apt-get install -y curl apt-transport-https gnupg
@@ -34,30 +34,33 @@ jobs:
           curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
           sudo apt-get update
           sudo ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools unixodbc-dev
-          echo 'PATH="$PATH:/opt/mssql-tools/bin"' >> $GITHUB_ENV
+          echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> $GITHUB_ENV
 
-      - name: Install Python dependencies
+      - name: ✅ Install Python dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Clean old Allure results
-        shell: bash
+      - name: ✅ Remove old Allure results (clean run)
         run: rm -rf allure-results || true
 
-      - name: Load demo data to Azure
-        run: python -m bankflow.tests.data.etl.setup_and_load_azure
+      - name: ✅ Load demo data to Azure SQL
+        run: |
+          python -m bankflow.tests.data.etl.setup_and_load_azure
 
-      - name: Run ETL tests on Azure SQL
-        run: pytest bankflow/tests/data/etl/test_completeness.py --alluredir=allure-results -v
+      - name: ✅ Run ETL tests
+        run: |
+          pytest bankflow/tests/data/etl/test_completeness.py --alluredir=allure-results -v
 
-      - name: Generate Allure Report
+      - name: ✅ Generate Allure Report
         uses: simple-elf/allure-report-action@v1.6
         with:
-          results-dir: allure-results
-          report-dir: allure-report
+          allure_results: allure-results
+          allure_report: allure-report
+          gh_pages: true
+          allure_history: allure-history
 
-      - name: Upload Allure Report Artifact
+      - name: ✅ Upload Allure Report Artifact
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
