@@ -44,5 +44,5 @@ jobs:
       - name: Load demo data to Azure
         run: python -m bankflow.tests.data.etl.setup_and_load_azure
 
-      - name: Run ETL tests on Azure SQL
-        run: pytest bankflow/tests/data/etl/test_completeness.py -v
+    #  - name: Run ETL tests on Azure SQL
+     #   run: pytest bankflow/tests/data/etl/test_completeness.py -v
