@@ -1,0 +1,30 @@
+# Python cache and environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env
+.env.*
+
+# VSCode settings
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# Allure reports
+allure-results/
+allure-report/
+
+# Screenshots & test artifacts
+reports/
+logs/
+screenshots/
+
+# SQLite DB if any
+*.db
+
+# Temporary files
+*.log
+.DS_Store
