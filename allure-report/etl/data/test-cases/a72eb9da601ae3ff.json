@@ -1,53 +1,23 @@
 {
-  "uid" : "6a146bf0c286f483",
-  "name" : "✅ Data Completeness Check",
-  "fullName" : "bankflow.tests.data.etl.test_completeness#test_data_completeness",
-  "historyId" : "0fdf218a3422e4caa090b6cd0006739f",
+  "uid" : "a72eb9da601ae3ff",
+  "name" : "⚠️ Mandatory Fields Not Null Check (email)",
+  "fullName" : "bankflow.tests.data.etl.test_completeness#test_mandatory_fields_not_null_email",
+  "historyId" : "68fc9a5e0e8c8da7a6751460ab6439ec",
   "time" : {
-    "start" : 1761514831807,
-    "stop" : 1761514831935,
-    "duration" : 128
+    "start" : 1761614896292,
+    "stop" : 1761614896302,
+    "duration" : 10
   },
-  "description" : "Verify the total number of rows in source matches target after ETL.",
-  "descriptionHtml" : "<p>Verify the total number of rows in source matches target after ETL.</p>\n",
+  "description" : "Validate mandatory field 'email' is populated in source.",
+  "descriptionHtml" : "<p>Validate mandatory field 'email' is populated in source.</p>\n",
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "delete_output_dir",
-    "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831807,
-      "duration" : 1
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
-  }, {
-    "name" : "base_url",
-    "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
-      "duration" : 0
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
-  }, {
     "name" : "pytestconfig",
     "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
       "duration" : 0
     },
     "status" : "passed",
@@ -61,8 +31,38 @@
   }, {
     "name" : "_verify_url",
     "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1761614896245,
+      "stop" : 1761614896245,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "delete_output_dir",
+    "time" : {
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
       "duration" : 0
     },
     "status" : "passed",
@@ -75,25 +75,19 @@
     "hasContent" : false
   } ],
   "testStage" : {
-    "description" : "Verify the total number of rows in source matches target after ETL.",
+    "description" : "Validate mandatory field 'email' is populated in source.",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "15690954cacee148",
-      "name" : "Source Row Count",
-      "source" : "15690954cacee148.attach",
-      "type" : "text/plain",
-      "size" : 1
-    }, {
-      "uid" : "c32bf2c1e2c797f9",
-      "name" : "Target Row Count",
-      "source" : "c32bf2c1e2c797f9.attach",
-      "type" : "text/plain",
-      "size" : 1
+      "uid" : "54abbdfb7a9d02f7",
+      "name" : "Mandatory Fields — Details",
+      "source" : "54abbdfb7a9d02f7.html",
+      "type" : "text/html",
+      "size" : 780
     } ],
     "parameters" : [ ],
     "stepsCount" : 0,
-    "attachmentsCount" : 2,
+    "attachmentsCount" : 1,
     "shouldDisplayMessage" : false,
     "hasContent" : true
   },
@@ -112,7 +106,7 @@
     "value" : "runnervmwhb2z"
   }, {
     "name" : "thread",
-    "value" : "4219-MainThread"
+    "value" : "4170-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -136,6 +130,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "6a146bf0c286f483.json",
+  "source" : "a72eb9da601ae3ff.json",
   "parameterValues" : [ ]
 }

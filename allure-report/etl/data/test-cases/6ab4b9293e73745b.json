@@ -1,53 +1,23 @@
 {
-  "uid" : "d2732310161bdf27",
-  "name" : "\uD83D\uDD01 Duplicate Records Validation",
-  "fullName" : "bankflow.tests.data.etl.test_completeness#test_duplicate_records_in_source",
-  "historyId" : "f76d54db9bbe5a3872697392875c8646",
+  "uid" : "6ab4b9293e73745b",
+  "name" : "\uD83D\uDD01 Duplicate Check on source_customers.customer_id",
+  "fullName" : "bankflow.tests.data.etl.test_completeness#test_duplicate_check_on_source_customer_id",
+  "historyId" : "111fbfe44455c0d1137fc87b7d90ffce",
   "time" : {
-    "start" : 1761514831936,
-    "stop" : 1761514831943,
-    "duration" : 7
+    "start" : 1761614896288,
+    "stop" : 1761614896291,
+    "duration" : 3
   },
-  "description" : "Ensure no duplicate customer_id present in source table.",
-  "descriptionHtml" : "<p>Ensure no duplicate customer_id present in source table.</p>\n",
+  "description" : "Ensure no duplicate customer_id values exist in source table.",
+  "descriptionHtml" : "<p>Ensure no duplicate customer_id values exist in source table.</p>\n",
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "delete_output_dir",
-    "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831807,
-      "duration" : 1
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
-  }, {
-    "name" : "base_url",
-    "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
-      "duration" : 0
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
-  }, {
     "name" : "pytestconfig",
     "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
       "duration" : 0
     },
     "status" : "passed",
@@ -61,8 +31,38 @@
   }, {
     "name" : "_verify_url",
     "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1761614896245,
+      "stop" : 1761614896245,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "delete_output_dir",
+    "time" : {
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
       "duration" : 0
     },
     "status" : "passed",
@@ -75,15 +75,15 @@
     "hasContent" : false
   } ],
   "testStage" : {
-    "description" : "Ensure no duplicate customer_id present in source table.",
+    "description" : "Ensure no duplicate customer_id values exist in source table.",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "331fcf66a36f9401",
-      "name" : "Duplicate Records Found",
-      "source" : "331fcf66a36f9401.attach",
-      "type" : "text/plain",
-      "size" : 2
+      "uid" : "2327c68524414f8a",
+      "name" : "Duplicate Check — Details",
+      "source" : "2327c68524414f8a.html",
+      "type" : "text/html",
+      "size" : 835
     } ],
     "parameters" : [ ],
     "stepsCount" : 0,
@@ -106,7 +106,7 @@
     "value" : "runnervmwhb2z"
   }, {
     "name" : "thread",
-    "value" : "4219-MainThread"
+    "value" : "4170-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -130,6 +130,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "d2732310161bdf27.json",
+  "source" : "6ab4b9293e73745b.json",
   "parameterValues" : [ ]
 }

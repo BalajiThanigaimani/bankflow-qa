@@ -1,50 +1,50 @@
 [ {
-  "uid" : "bd3026160199ac9b",
-  "name" : "\uD83D\uDD27 Transformation Logic Check",
+  "uid" : "6ab4b9293e73745b",
+  "name" : "\uD83D\uDD01 Duplicate Check on source_customers.customer_id",
   "time" : {
-    "start" : 1761514831960,
-    "stop" : 1761514831980,
-    "duration" : 20
+    "start" : 1761614896288,
+    "stop" : 1761614896291,
+    "duration" : 3
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "6a146bf0c286f483",
-  "name" : "✅ Data Completeness Check",
+  "uid" : "b3f88368c3e94c6f",
+  "name" : "✅ Row Count Consistency Between Source and Target",
   "time" : {
-    "start" : 1761514831807,
-    "stop" : 1761514831935,
-    "duration" : 128
+    "start" : 1761614896246,
+    "stop" : 1761614896287,
+    "duration" : 41
   },
   "status" : "passed",
   "severity" : "critical"
 }, {
-  "uid" : "d2732310161bdf27",
-  "name" : "\uD83D\uDD01 Duplicate Records Validation",
+  "uid" : "a72eb9da601ae3ff",
+  "name" : "⚠️ Mandatory Fields Not Null Check (email)",
   "time" : {
-    "start" : 1761514831936,
-    "stop" : 1761514831943,
-    "duration" : 7
+    "start" : 1761614896292,
+    "stop" : 1761614896302,
+    "duration" : 10
+  },
+  "status" : "passed",
+  "severity" : "critical"
+}, {
+  "uid" : "f7ed272ec8ea66a",
+  "name" : "\uD83D\uDD27 Transformation Logic – full_name = first_name + ' ' + last_name",
+  "time" : {
+    "start" : 1761614896303,
+    "stop" : 1761614896319,
+    "duration" : 16
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "a83684d96cdf6c2f",
-  "name" : "\uD83D\uDD0E Missing Records After ETL",
+  "uid" : "36c5589178db4ac1",
+  "name" : "\uD83D\uDD0E Missing Records Validation Between Source and Target",
   "time" : {
-    "start" : 1761514831981,
-    "stop" : 1761514831989,
-    "duration" : 8
-  },
-  "status" : "passed",
-  "severity" : "critical"
-}, {
-  "uid" : "a24c75501e5b5ebd",
-  "name" : "⚠️ Mandatory Fields Check",
-  "time" : {
-    "start" : 1761514831945,
-    "stop" : 1761514831959,
-    "duration" : 14
+    "start" : 1761614896320,
+    "stop" : 1761614896323,
+    "duration" : 3
   },
   "status" : "passed",
   "severity" : "critical"

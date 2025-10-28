@@ -1,53 +1,23 @@
 {
-  "uid" : "a83684d96cdf6c2f",
-  "name" : "\uD83D\uDD0E Missing Records After ETL",
-  "fullName" : "bankflow.tests.data.etl.test_completeness#test_missing_records",
-  "historyId" : "a007f041b7323dbcc0a2e1e2c39d6f4f",
+  "uid" : "36c5589178db4ac1",
+  "name" : "\uD83D\uDD0E Missing Records Validation Between Source and Target",
+  "fullName" : "bankflow.tests.data.etl.test_completeness#test_missing_records_between_source_and_target",
+  "historyId" : "5f4c5f9834f2fb64457194314e1eed3b",
   "time" : {
-    "start" : 1761514831981,
-    "stop" : 1761514831989,
-    "duration" : 8
+    "start" : 1761614896320,
+    "stop" : 1761614896323,
+    "duration" : 3
   },
-  "description" : "Ensure no missing rows between source and target after ETL.",
-  "descriptionHtml" : "<p>Ensure no missing rows between source and target after ETL.</p>\n",
+  "description" : "Ensure all source rows exist in target after ETL.",
+  "descriptionHtml" : "<p>Ensure all source rows exist in target after ETL.</p>\n",
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "delete_output_dir",
-    "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831807,
-      "duration" : 1
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
-  }, {
-    "name" : "base_url",
-    "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
-      "duration" : 0
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
-  }, {
     "name" : "pytestconfig",
     "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
       "duration" : 0
     },
     "status" : "passed",
@@ -61,8 +31,38 @@
   }, {
     "name" : "_verify_url",
     "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1761614896245,
+      "stop" : 1761614896245,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "delete_output_dir",
+    "time" : {
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
       "duration" : 0
     },
     "status" : "passed",
@@ -75,15 +75,15 @@
     "hasContent" : false
   } ],
   "testStage" : {
-    "description" : "Ensure no missing rows between source and target after ETL.",
+    "description" : "Ensure all source rows exist in target after ETL.",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "d06c01152f7f3cf1",
-      "name" : "Missing Rows",
-      "source" : "d06c01152f7f3cf1.attach",
-      "type" : "text/plain",
-      "size" : 2
+      "uid" : "f50817e1ee2baf28",
+      "name" : "Missing Records — Details",
+      "source" : "f50817e1ee2baf28.html",
+      "type" : "text/html",
+      "size" : 883
     } ],
     "parameters" : [ ],
     "stepsCount" : 0,
@@ -106,7 +106,7 @@
     "value" : "runnervmwhb2z"
   }, {
     "name" : "thread",
-    "value" : "4219-MainThread"
+    "value" : "4170-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -130,6 +130,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "a83684d96cdf6c2f.json",
+  "source" : "36c5589178db4ac1.json",
   "parameterValues" : [ ]
 }

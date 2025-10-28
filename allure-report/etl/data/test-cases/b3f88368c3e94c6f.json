@@ -1,53 +1,23 @@
 {
-  "uid" : "a24c75501e5b5ebd",
-  "name" : "⚠️ Mandatory Fields Check",
-  "fullName" : "bankflow.tests.data.etl.test_completeness#test_null_mandatory_fields",
-  "historyId" : "77501565ac50c94efbc83428dcfeec48",
+  "uid" : "b3f88368c3e94c6f",
+  "name" : "✅ Row Count Consistency Between Source and Target",
+  "fullName" : "bankflow.tests.data.etl.test_completeness#test_row_count_consistency_between_source_and_target",
+  "historyId" : "2b2d505c3e1ca1756fe647d3d94b3c9b",
   "time" : {
-    "start" : 1761514831945,
-    "stop" : 1761514831959,
-    "duration" : 14
+    "start" : 1761614896246,
+    "stop" : 1761614896287,
+    "duration" : 41
   },
-  "description" : "Check if mandatory fields like email are populated.",
-  "descriptionHtml" : "<p>Check if mandatory fields like email are populated.</p>\n",
+  "description" : "Validate total row counts are identical after ETL.",
+  "descriptionHtml" : "<p>Validate total row counts are identical after ETL.</p>\n",
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "delete_output_dir",
-    "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831807,
-      "duration" : 1
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
-  }, {
-    "name" : "base_url",
-    "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
-      "duration" : 0
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
-  }, {
     "name" : "pytestconfig",
     "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
       "duration" : 0
     },
     "status" : "passed",
@@ -61,8 +31,38 @@
   }, {
     "name" : "_verify_url",
     "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1761614896245,
+      "stop" : 1761614896245,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "delete_output_dir",
+    "time" : {
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
       "duration" : 0
     },
     "status" : "passed",
@@ -75,15 +75,15 @@
     "hasContent" : false
   } ],
   "testStage" : {
-    "description" : "Check if mandatory fields like email are populated.",
+    "description" : "Validate total row counts are identical after ETL.",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "54f35d745cba29a1",
-      "name" : "Null Mandatory Fields",
-      "source" : "54f35d745cba29a1.attach",
-      "type" : "text/plain",
-      "size" : 2
+      "uid" : "793b256e45fb8c5f",
+      "name" : "Row Count Consistency — Details",
+      "source" : "793b256e45fb8c5f.html",
+      "type" : "text/html",
+      "size" : 776
     } ],
     "parameters" : [ ],
     "stepsCount" : 0,
@@ -106,7 +106,7 @@
     "value" : "runnervmwhb2z"
   }, {
     "name" : "thread",
-    "value" : "4219-MainThread"
+    "value" : "4170-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -130,6 +130,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "a24c75501e5b5ebd.json",
+  "source" : "b3f88368c3e94c6f.json",
   "parameterValues" : [ ]
 }

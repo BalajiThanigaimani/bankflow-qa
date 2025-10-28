@@ -1,53 +1,23 @@
 {
-  "uid" : "bd3026160199ac9b",
-  "name" : "\uD83D\uDD27 Transformation Logic Check",
-  "fullName" : "bankflow.tests.data.etl.test_completeness#test_name_transformation_rule",
-  "historyId" : "d85710e1c31d44ce0b6e42cd424293cf",
+  "uid" : "f7ed272ec8ea66a",
+  "name" : "\uD83D\uDD27 Transformation Logic – full_name = first_name + ' ' + last_name",
+  "fullName" : "bankflow.tests.data.etl.test_completeness#test_full_name_transformation_rule",
+  "historyId" : "eb7756444d95ffa748d72e0a1dd8f557",
   "time" : {
-    "start" : 1761514831960,
-    "stop" : 1761514831980,
-    "duration" : 20
+    "start" : 1761614896303,
+    "stop" : 1761614896319,
+    "duration" : 16
   },
-  "description" : "Validate name transformation rule: first + last = full_name.",
-  "descriptionHtml" : "<p>Validate name transformation rule: first + last = full_name.</p>\n",
+  "description" : "Validate full_name transformation against source first_name/last_name.",
+  "descriptionHtml" : "<p>Validate full_name transformation against source first_name/last_name.</p>\n",
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "delete_output_dir",
-    "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831807,
-      "duration" : 1
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
-  }, {
-    "name" : "base_url",
-    "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
-      "duration" : 0
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
-  }, {
     "name" : "pytestconfig",
     "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
       "duration" : 0
     },
     "status" : "passed",
@@ -61,8 +31,38 @@
   }, {
     "name" : "_verify_url",
     "time" : {
-      "start" : 1761514831806,
-      "stop" : 1761514831806,
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1761614896245,
+      "stop" : 1761614896245,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "delete_output_dir",
+    "time" : {
+      "start" : 1761614896246,
+      "stop" : 1761614896246,
       "duration" : 0
     },
     "status" : "passed",
@@ -75,15 +75,15 @@
     "hasContent" : false
   } ],
   "testStage" : {
-    "description" : "Validate name transformation rule: first + last = full_name.",
+    "description" : "Validate full_name transformation against source first_name/last_name.",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "ba4497417c395c4e",
-      "name" : "Transformation Errors",
-      "source" : "ba4497417c395c4e.attach",
-      "type" : "text/plain",
-      "size" : 2
+      "uid" : "9167c4eaac597919",
+      "name" : "Transformation Rule — Details",
+      "source" : "9167c4eaac597919.html",
+      "type" : "text/html",
+      "size" : 1056
     } ],
     "parameters" : [ ],
     "stepsCount" : 0,
@@ -106,7 +106,7 @@
     "value" : "runnervmwhb2z"
   }, {
     "name" : "thread",
-    "value" : "4219-MainThread"
+    "value" : "4170-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -130,6 +130,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "bd3026160199ac9b.json",
+  "source" : "f7ed272ec8ea66a.json",
   "parameterValues" : [ ]
 }
