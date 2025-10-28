@@ -4,8 +4,35 @@ import allure
 from allure_commons.types import Severity
 from bankflow.framework.data.db_manager import DBManager
 
+# ------------------------------
+# Reusable HTML attachment helper
+# ------------------------------
+def attach_html(title: str, query: str, expected: str, actual: str):
+    html = f"""
+    <html>
+      <body>
+        <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:13px;">
+          <tr>
+            <th align="left" style="background:#f5f5f5;">Query</th>
+            <td><pre style="margin:0;white-space:pre-wrap;">{query}</pre></td>
+          </tr>
+          <tr>
+            <th align="left" style="background:#f5f5f5;">Expected</th>
+            <td>{expected}</td>
+          </tr>
+          <tr>
+            <th align="left" style="background:#f5f5f5;">Actual</th>
+            <td>{actual}</td>
+          </tr>
+        </table>
+      </body>
+    </html>
+    """
+    allure.attach(html, title, allure.attachment_type.HTML)
 
-# ✅ DB Selector
+# ------------------------------
+# DB selector helper
+# ------------------------------
 def get_db():
     db_type = os.getenv("DB_TYPE", "sqlite")  # Default to local SQLite
     if db_type == "azure":
@@ -18,77 +45,135 @@ def get_db():
         )
     return DBManager(db_path="bankflow.db")
 
+# ==========================================================
+#               TESTS (standalone, improved names)
+# ==========================================================
 
 @allure.severity(Severity.CRITICAL)
-@allure.title("✅ Data Completeness Check")
-@allure.description("Verify the total number of rows in source matches target after ETL.")
-def test_data_completeness():
+@allure.title("✅ Row Count Consistency Between Source and Target")
+@allure.description("Validate total row counts are identical after ETL.")
+def test_row_count_consistency_between_source_and_target():
     db = get_db()
-    source_count = db.fetch_all("SELECT COUNT(*) FROM source_customers")[0][0]
-    target_count = db.fetch_all("SELECT COUNT(*) FROM target_customers")[0][0]
-    allure.attach(str(source_count), "Source Row Count")
-    allure.attach(str(target_count), "Target Row Count")
-    assert source_count == target_count, f"❌ Data completeness failed: source={source_count}, target={target_count}"
 
+    query_source = "SELECT COUNT(*) FROM source_customers;"
+    query_target = "SELECT COUNT(*) FROM target_customers;"
+
+    source_count = db.fetch_all(query_source)[0][0]
+    target_count = db.fetch_all(query_target)[0][0]
+
+    expected = "Source row count must equal Target row count."
+    actual = f"Source={source_count}, Target={target_count}"
+
+    attach_html("Row Count Consistency — Details",
+                f"{query_source}\n{query_target}",
+                expected,
+                actual)
+
+    assert source_count == target_count, f"❌ Row count mismatch: {actual}"
 
 @allure.severity(Severity.NORMAL)
-@allure.title("🔁 Duplicate Records Validation")
-@allure.description("Ensure no duplicate customer_id present in source table.")
-def test_duplicate_records_in_source():
+@allure.title("🔁 Duplicate Check on source_customers.customer_id")
+@allure.description("Ensure no duplicate customer_id values exist in source table.")
+def test_duplicate_check_on_source_customer_id():
     db = get_db()
-    duplicates = db.fetch_all("""
+
+    query_dups = """
         SELECT customer_id, COUNT(*)
         FROM source_customers
         GROUP BY customer_id
         HAVING COUNT(*) > 1;
-    """)
-    allure.attach(str(duplicates), "Duplicate Records Found")
-    assert len(duplicates) == 0, f"❌ Duplicate records found: {duplicates}"
+    """
 
+    duplicates = db.fetch_all(query_dups)
+    dup_count = len(duplicates)
+
+    expected = "No duplicate customer_id should exist in source_customers."
+    actual = f"Duplicate groups found: {dup_count}"
+
+    attach_html("Duplicate Check — Details",
+                query_dups.strip(),
+                expected,
+                actual)
+
+    assert dup_count == 0, f"❌ Duplicate records found (count={dup_count})."
 
 @allure.severity(Severity.CRITICAL)
-@allure.title("⚠️ Mandatory Fields Check")
-@allure.description("Check if mandatory fields like email are populated.")
-def test_null_mandatory_fields():
+@allure.title("⚠️ Mandatory Fields Not Null Check (email)")
+@allure.description("Validate mandatory field 'email' is populated in source.")
+def test_mandatory_fields_not_null_email():
     db = get_db()
-    null_records = db.fetch_all("""
-        SELECT customer_id, email
+
+    query_nulls = """
+        SELECT customer_id
         FROM source_customers
         WHERE email IS NULL;
-    """)
-    allure.attach(str(null_records), "Null Mandatory Fields")
-    assert len(null_records) == 0, f"❌ Null values in mandatory fields: {null_records}"
+    """
 
+    null_records = db.fetch_all(query_nulls)
+    null_count = len(null_records)
+
+    expected = "All mandatory emails must be populated (no NULL)."
+    actual = f"Null email rows: {null_count}"
+
+    attach_html("Mandatory Fields — Details",
+                query_nulls.strip(),
+                expected,
+                actual)
+
+    assert null_count == 0, f"❌ Null values in mandatory field 'email' (count={null_count})."
 
 @allure.severity(Severity.NORMAL)
-@allure.title("🔧 Transformation Logic Check")
-@allure.description("Validate name transformation rule: first + last = full_name.")
-def test_name_transformation_rule():
+@allure.title("🔧 Transformation Logic – full_name = first_name + ' ' + last_name")
+@allure.description("Validate full_name transformation against source first_name/last_name.")
+def test_full_name_transformation_rule():
     db = get_db()
-    incorrect_transform = db.fetch_all("""
+
+    query_transform = """
         SELECT s.customer_id,
                s.first_name || ' ' || s.last_name AS expected_full_name,
                t.full_name AS actual_full_name
         FROM source_customers s
         LEFT JOIN target_customers t
-        ON s.customer_id = t.customer_id
+          ON s.customer_id = t.customer_id
         WHERE TRIM(s.first_name || ' ' || s.last_name) != TRIM(t.full_name);
-    """)
-    allure.attach(str(incorrect_transform), "Transformation Errors")
-    assert len(incorrect_transform) == 0, f"❌ Transformation mismatch: {incorrect_transform}"
+    """
 
+    mismatches = db.fetch_all(query_transform)
+    mismatch_count = len(mismatches)
+
+    expected = "Transformed full_name must equal first_name + ' ' + last_name."
+    actual = f"Transformation mismatches: {mismatch_count}"
+
+    attach_html("Transformation Rule — Details",
+                query_transform.strip(),
+                expected,
+                actual)
+
+    assert mismatch_count == 0, f"❌ full_name transformation mismatch (count={mismatch_count})."
 
 @allure.severity(Severity.CRITICAL)
-@allure.title("🔎 Missing Records After ETL")
-@allure.description("Ensure no missing rows between source and target after ETL.")
-def test_missing_records():
+@allure.title("🔎 Missing Records Validation Between Source and Target")
+@allure.description("Ensure all source rows exist in target after ETL.")
+def test_missing_records_between_source_and_target():
     db = get_db()
-    missing_rows = db.fetch_all("""
+
+    query_missing = """
         SELECT s.customer_id
         FROM source_customers s
         LEFT JOIN target_customers t
-        ON s.customer_id = t.customer_id
+          ON s.customer_id = t.customer_id
         WHERE t.customer_id IS NULL;
-    """)
-    allure.attach(str(missing_rows), "Missing Rows")
-    assert len(missing_rows) == 0, f"❌ Missing rows found: {missing_rows}"
+    """
+
+    missing_rows = db.fetch_all(query_missing)
+    missing_count = len(missing_rows)
+
+    expected = "Every source customer_id must exist in target_customers."
+    actual = f"Missing target rows: {missing_count}"
+
+    attach_html("Missing Records — Details",
+                query_missing.strip(),
+                expected,
+                actual)
+
+    assert missing_count == 0, f"❌ Missing rows between source and target (count={missing_count})."
